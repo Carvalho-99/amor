@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Surpresa 💙</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('fundo1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      overflow-y: auto; /* Permite rolagem se precisar */
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      color: #ffffff;
+      backdrop-filter: blur(6px);
+      max-width: 500px;
+      margin: 50px auto; /* centraliza horizontalmente e dá margem superior */
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #6cb4f4;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #539edb;
+      transform: scale(1.05);
+    }
+
+    #nextPageBtn {
+      margin-top: 25px;
+      background-color: #4b8ed3;
+    }
+
+    #nextPageBtn:hover {
+      background-color: #407cc0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Oi, Moça 💙</h1>
+    <p>Algumas Perguntas pra Saber se é Você Mesmo:</p>
+    
+    <div>
+      <h2>A onde a Gente se Conheceu ?</h2>
+      <ul>
+        <li><button onclick="verificarResposta(this)">No mercado ?</button></li>
+        <li><button onclick="verificarResposta(this)">faculdade ?</button></li>
+        <li><button onclick="verificarResposta(this)" data-correta="true">Tinder ?</button></li>
+        <li><button onclick="verificarResposta(this)">Na Festa ?</button></li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <h2>Onde foi Nosso Primeiro Beijo ?</h2>
+      <ul>
+        <li><button onclick="verificarResposta(this)" data-correta="true">No Sofá</button></li>
+        <li><button onclick="verificarResposta(this)">Na festa</button></li>
+        <li><button onclick="verificarResposta(this)">No Carro</button></li>
+      </ul>
+    </div>
+
+    <button id="nextPageBtn" onclick="irParaPagina2()" disabled>Ir para Página 2</button>
+  </div>
+
+  <script>
+    let acertos = 0;
+
+    function verificarResposta(botao) {
+      if (botao.dataset.correta === "true") {
+        botao.style.backgroundColor = "#7CFC00";
+        acertos++;
+      } else {
+        botao.style.backgroundColor = "#ff4d4d";
+      }
+
+      botao.disabled = true;
+
+      if (acertos >= 2) {
+        document.getElementById("nextPageBtn").disabled = false;
+      }
+    }
+
+    function irParaPagina2() {
+      window.location.href = "../fundo2.png/pagina2.html";
+    }
+  </script>
+
+</body>
+</html>

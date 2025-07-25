@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Página 2 - Mais Perguntas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-image: url('fundo2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.85);
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      color: #5e17eb;
+      margin-bottom: 5px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .pergunta {
+      margin-bottom: 40px;
+    }
+
+    .pergunta h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .pergunta button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(to right, #e0e0e0, #f5f5f5);
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .pergunta button:hover {
+      background: linear-gradient(to right, #dadada, #ebebeb);
+      transform: scale(1.02);
+    }
+
+    .correta {
+      background-color: #28a745 !important;
+      color: white;
+    }
+
+    .errada {
+      background-color: #dc3545 !important;
+      color: white;
+    }
+
+    .desativado {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .mensagem {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .mensagem.sucesso {
+      color: #155724;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+    }
+
+    .mensagem.erro {
+      color: #721c24;
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+    }
+
+    .voltar {
+      margin-top: 30px;
+      background: linear-gradient(to right, #5e17eb, #7b41f1);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      transition: 0.3s ease;
+    }
+
+    .voltar:hover {
+      background: linear-gradient(to right, #3d0b9b, #6120f0);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Meu Neném 💜</h1>
+    <p>Estou com muita saudade de você...</p>
+
+    <div class="pergunta">
+      <h3>1. Do que estou com mais saudade?</h3>
+      <button onclick="verificar(this, false)">Mimi junto</button>
+      <button onclick="verificar(this, false)">Ir no cinema</button>
+      <button onclick="verificar(this, false)">Assistir filme à noite</button>
+      <button onclick="verificar(this, true)">Todas as alternativas</button>
+      <!-- Espaço para a mensagem aparecer -->
+      <div class="mensagem" id="mensagem"></div>
+    </div>
+
+    <button class="voltar" onclick="window.location.href='../fundo.png/index.html'">Voltar para a Página Inicial</button>
+  </div>
+
+  <script>
+    function verificar(botao, correta) {
+      const container = botao.parentElement;
+      const botoes = container.querySelectorAll('button');
+      const mensagemDiv = container.querySelector('#mensagem');
+
+      // Desativa todos os botões
+      botoes.forEach(btn => {
+        btn.classList.add('desativado');
+        btn.onclick = null;
+      });
+
+      // Limpa mensagens anteriores
+      mensagemDiv.textContent = '';
+      mensagemDiv.className = 'mensagem';
+
+      if (correta) {
+        botao.classList.add('correta');
+        mensagemDiv.textContent = 'Acertou te amo';
+        mensagemDiv.classList.add('sucesso');
+      } else {
+        botao.classList.add('errada');
+        mensagemDiv.textContent = 'Você errou Mozi';
+        mensagemDiv.classList.add('erro');
+      }
+    }
+  </script>
+
+</body>
+</html>
